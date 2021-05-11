@@ -1,0 +1,13 @@
+services:
+  # customer-service:
+  #   build:
+  #     context: .
+  #     dockerfile: src/Dockerfile
+
+  sqlserver:
+    image: mcr.microsoft.com/mssql/server
+    environment:
+      - ACCEPT_EULA=Y
+      - SA_PASSWORD=Your_strong_password1
+    ports:
+      - "1433:1433"
