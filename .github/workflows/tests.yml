@@ -1,0 +1,56 @@
+name: Dotnet Tests
+
+on:
+  push:
+    branches: [master]
+
+jobs:
+  integration-tests:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    env:
+      DOTNET_SYSTEM_GLOBALIZATION_INVARIANT: true
+      DOTNET_NOLOGO: true
+    steps:
+      - uses: actions/checkout@v2
+
+      - uses: actions/setup-dotnet@v1
+        with:
+          dotnet-version: 5.0.x
+
+      - uses: actions/cache@v2
+        with:
+          path: ~/.nuget/packages
+          key: ${{ runner.os }}-nuget-${{ hashFiles('**/packages.lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-nuget-
+
+      - name: Restore dependencies
+        run: dotnet restore test/IntegrationTests/*.csproj
+      - name: Test
+        run: dotnet test --no-restore test/IntegrationTests /p:CollectCoverage=true /p:CoverletOutputFormat=opencover /p:ExcludeByFile="**/src/Migrations/**"
+
+  unit-tests:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    env:
+      DOTNET_SYSTEM_GLOBALIZATION_INVARIANT: true
+      DOTNET_NOLOGO: true
+    steps:
+      - uses: actions/checkout@v2
+
+      - uses: actions/setup-dotnet@v1
+        with:
+          dotnet-version: 5.0.x
+
+      - uses: actions/cache@v2
+        with:
+          path: ~/.nuget/packages
+          key: ${{ runner.os }}-nuget-${{ hashFiles('**/packages.lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-nuget-
+
+      - name: Restore dependencies
+        run: dotnet restore test/UnitTests/
+      - name: Test
+        run: dotnet test --no-restore test/UnitTests /p:CollectCoverage=true /p:CoverletOutputFormat=opencover /p:ExcludeByFile="**/src/Migrations/**"
