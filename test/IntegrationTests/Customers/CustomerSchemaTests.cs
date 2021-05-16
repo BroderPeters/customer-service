@@ -508,7 +508,8 @@ namespace CodeChallenge.IntegrationTests.Customers
             var serviceCollection = new ServiceCollection()
                 .AddPooledDbContextFactory<CustomerDbContext>(
                     options => options.UseInMemoryDatabase($"Data Source={dataSource}.db"))
-                .AddScoped<CustomerDbContext>(p => p.GetRequiredService<IDbContextFactory<CustomerDbContext>>().CreateDbContext())
+                .AddScoped<CustomerDbContext>(
+                    p => p.GetRequiredService<IDbContextFactory<CustomerDbContext>>().CreateDbContext())
                 .AddScoped<ICustomerRepository, CustomerRepository>()
                 .AddScoped<ICustomerService, CustomerService.Services.CustomerService>()
                 .AddGraphQL()

@@ -24,8 +24,11 @@ namespace CodeChallenge.CustomerService
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddPooledDbContextFactory<CustomerDbContext>(options => options.UseSqlServer("Server=localhost;Database=master;User Id=sa;Password=Your_strong_password1;"));
-            services.AddScoped<CustomerDbContext>(p => p.GetRequiredService<IDbContextFactory<CustomerDbContext>>().CreateDbContext());
+            services.AddPooledDbContextFactory<CustomerDbContext>(
+                options => options.UseSqlServer("Server=localhost;Database=master;User Id=sa;Password=Your_strong_password1;"));
+            services.AddScoped<CustomerDbContext>(
+                p => p.GetRequiredService<IDbContextFactory<CustomerDbContext>>().CreateDbContext());
+
             services.AddScoped<ICustomerRepository, CustomerRepository>();
             services.AddScoped<ICustomerService, CustomerService.Services.CustomerService>();
 

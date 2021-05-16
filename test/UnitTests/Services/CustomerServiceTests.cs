@@ -29,7 +29,9 @@ namespace CodeChallenge.UnitTests.Services
 
             A.CallTo(() => _repository.AddCustomer(A<Customer>._)).MustHaveHappenedOnceExactly();
             A.CallTo(() => _repository.SaveChanges()).MustHaveHappenedOnceExactly();
-            result.Should().BeEquivalentTo(expectedResult, options => options.Excluding(x => x.Id).Excluding(x => x.CreatedAt));
+            result.Should().BeEquivalentTo(
+                expectedResult,
+                options => options.Excluding(x => x.Id).Excluding(x => x.CreatedAt));
         }
 
         [Fact]
@@ -41,7 +43,8 @@ namespace CodeChallenge.UnitTests.Services
 
             A.CallTo(() => _repository.GetCustomerById(1)).Returns(johnDoe);
 
-            var result = await new CustomerService.Services.CustomerService(_repository).UpdateCustomer(updateCustomerInput);
+            var result = await new CustomerService.Services.CustomerService(_repository)
+                .UpdateCustomer(updateCustomerInput);
 
             A.CallTo(() => _repository.SaveChanges()).MustHaveHappenedOnceExactly();
             result.Should().BeEquivalentTo(expectedResult);
@@ -67,7 +70,8 @@ namespace CodeChallenge.UnitTests.Services
 
             A.CallTo(() => _repository.GetCustomerById(1)).Returns(johnDoe);
 
-            var result = await new CustomerService.Services.CustomerService(_repository).DeleteCustomer(deleteCustomerInput);
+            var result = await new CustomerService.Services.CustomerService(_repository)
+                .DeleteCustomer(deleteCustomerInput);
 
             A.CallTo(() => _repository.RemoveCustomer(A<Customer>._)).MustHaveHappenedOnceExactly();
             A.CallTo(() => _repository.SaveChanges()).MustHaveHappenedOnceExactly();

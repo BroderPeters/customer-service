@@ -21,7 +21,9 @@ namespace CodeChallenge.CustomerService.Customers
                 .Field(x => x.GetCustomer(default, default!, default, default!))
                 .Type<CustomerType>()
                 .Description("Get a specific customer by id.")
-                .Argument("id", argumentDescriptor => argumentDescriptor.Description("The id to search the customer on."));
+                .Argument(
+                    "id",
+                    argumentDescriptor => argumentDescriptor.Description("The id to search the customer on."));
         }
 
     }

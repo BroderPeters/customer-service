@@ -22,7 +22,8 @@ namespace CodeChallenge.CustomerService.Customers
             }
             catch (MaxStringLengthExceededException ex)
             {
-                return new AddCustomerPayload(new List<UserError> { new UserError(ex.Message, Constants.MaxStringLengthExceeded) });
+                return new AddCustomerPayload(
+                    new List<UserError> { new UserError(ex.Message, Constants.MaxStringLengthExceeded) });
             }
         }
 
