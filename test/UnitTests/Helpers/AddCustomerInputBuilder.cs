@@ -11,6 +11,11 @@ namespace CodeChallenge.UnitTests.Helpers
         private CustomerStatus _status;
         private bool _isBlocked;
 
+        public static implicit operator AddCustomerInput(AddCustomerInputBuilder builder)
+        {
+            return builder.Build();
+        }
+
         public AddCustomerInputBuilder WithEmail(string email)
         {
             _email = email;
@@ -41,12 +46,7 @@ namespace CodeChallenge.UnitTests.Helpers
             return this;
         }
 
-        public AddCustomerInput Build() => new AddCustomerInput(_email, _name, _code, _status, _isBlocked);
-
-        public static implicit operator AddCustomerInput(AddCustomerInputBuilder builder)
-        {
-            return builder.Build();
-        }
+        public AddCustomerInput Build() => new(_email, _name, _code, _status, _isBlocked);
 
         public AddCustomerInputBuilder JohnDoe()
         {

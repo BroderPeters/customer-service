@@ -15,7 +15,10 @@ namespace CodeChallenge.IntegrationTests.Customers
 {
     public class CustomerSchemaTests
     {
-        private Task _initialziation;
+#pragma warning disable IDE0052 // Remove unread private member
+        private readonly Task _initialziation;
+#pragma warning restore IDE0052 // Remove unread private member
+
         private ISchema _schema;
         private IRequestExecutor _requestExecutor;
 

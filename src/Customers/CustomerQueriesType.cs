@@ -25,6 +25,5 @@ namespace CodeChallenge.CustomerService.Customers
                     "id",
                     argumentDescriptor => argumentDescriptor.Description("The id to search the customer on."));
         }
-
     }
 }

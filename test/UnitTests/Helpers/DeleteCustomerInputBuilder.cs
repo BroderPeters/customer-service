@@ -6,17 +6,17 @@ namespace CodeChallenge.UnitTests.Helpers
     {
         private long _id;
 
+        public static implicit operator DeleteCustomerInput(DeleteCustomerInputBuilder builder)
+        {
+            return builder.Build();
+        }
+
         public DeleteCustomerInputBuilder WithId(long id)
         {
             _id = id;
             return this;
         }
 
-        public DeleteCustomerInput Build() => new DeleteCustomerInput(_id);
-
-        public static implicit operator DeleteCustomerInput(DeleteCustomerInputBuilder builder)
-        {
-            return builder.Build();
-        }
+        public DeleteCustomerInput Build() => new(_id);
     }
 }

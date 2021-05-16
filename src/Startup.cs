@@ -1,14 +1,14 @@
-using CodeChallenge.CustomerService.Infrastructure.Contexts;
-using Microsoft.AspNetCore.Builder;
-using Microsoft.AspNetCore.Hosting;
-using Microsoft.Extensions.Configuration;
-using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Hosting;
-using Microsoft.EntityFrameworkCore;
 using CodeChallenge.CustomerService.Customers;
+using CodeChallenge.CustomerService.Infrastructure.Contexts;
 using CodeChallenge.CustomerService.Repositories;
 using CodeChallenge.CustomerService.Services;
 using HotChocolate.Types;
+using Microsoft.AspNetCore.Builder;
+using Microsoft.AspNetCore.Hosting;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Hosting;
 
 namespace CodeChallenge.CustomerService
 {

@@ -1,3 +1,4 @@
+using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
@@ -8,6 +9,10 @@ using HotChocolate.Resolvers;
 
 namespace CodeChallenge.CustomerService.Customers
 {
+    [SuppressMessage(
+        "Design",
+        "CA1068: CancellationToken parameters must come last",
+        Justification = "Order is necessary for HotChocolate.")]
     public class CustomerQueries
     {
         public IQueryable<Customer> GetCustomers([Service] ICustomerRepository repository)
@@ -27,6 +32,5 @@ namespace CodeChallenge.CustomerService.Customers
                 })
                 .LoadAsync(id, cancellationToken);
         }
-
     }
 }

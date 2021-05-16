@@ -43,8 +43,6 @@ namespace CodeChallenge.CustomerService.Customers
                 .Field(x => x.CreatedAt)
                 .Type<DateTimeType>()
                 .Description("The creation date and time of the customer data record in UTC.");
-
         }
-
     }
 }

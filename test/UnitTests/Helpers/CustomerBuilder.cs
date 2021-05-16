@@ -14,6 +14,11 @@ namespace CodeChallenge.UnitTests.Helpers
         private bool _isBlocked;
         private DateTime _createdAt;
 
+        public static implicit operator Customer(CustomerBuilder builder)
+        {
+            return builder.Build();
+        }
+
         public CustomerBuilder WithId(long id)
         {
             _id = id;
@@ -71,11 +76,6 @@ namespace CodeChallenge.UnitTests.Helpers
             customer.SetEmail(_email);
 
             return customer;
-        }
-
-        public static implicit operator Customer(CustomerBuilder builder)
-        {
-            return builder.Build();
         }
 
         public CustomerBuilder JohnDoe()

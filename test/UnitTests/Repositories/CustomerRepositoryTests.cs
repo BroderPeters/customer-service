@@ -24,7 +24,7 @@ namespace CodeChallenge.UnitTests.Repositories
                 new CustomerBuilder().JohnDoe().WithId(3)
             };
 
-            var options = SqliteInMemory.CreateOptions<CustomerDbContext>();
+            using var options = SqliteInMemory.CreateOptions<CustomerDbContext>();
             using var context = new CustomerDbContext(options);
             context.Database.EnsureCreated();
 
@@ -53,7 +53,7 @@ namespace CodeChallenge.UnitTests.Repositories
                 new CustomerBuilder().JohnDoe().WithId(2),
             };
 
-            var options = SqliteInMemory.CreateOptions<CustomerDbContext>();
+            using var options = SqliteInMemory.CreateOptions<CustomerDbContext>();
             using var context = new CustomerDbContext(options);
             context.Database.EnsureCreated();
 
@@ -71,7 +71,7 @@ namespace CodeChallenge.UnitTests.Repositories
         {
             Customer johnDoe = new CustomerBuilder().JohnDoe();
 
-            var options = SqliteInMemory.CreateOptions<CustomerDbContext>();
+            using var options = SqliteInMemory.CreateOptions<CustomerDbContext>();
             using var context = new CustomerDbContext(options);
             context.Database.EnsureCreated();
 
@@ -89,7 +89,7 @@ namespace CodeChallenge.UnitTests.Repositories
         {
             Customer johnDoe = new CustomerBuilder().JohnDoe();
 
-            var options = SqliteInMemory.CreateOptions<CustomerDbContext>();
+            using var options = SqliteInMemory.CreateOptions<CustomerDbContext>();
             using var context = new CustomerDbContext(options);
             context.Database.EnsureCreated();
 
@@ -107,7 +107,7 @@ namespace CodeChallenge.UnitTests.Repositories
         {
             Customer johnDoe = new CustomerBuilder().JohnDoe();
 
-            var options = SqliteInMemory.CreateOptions<CustomerDbContext>();
+            using var options = SqliteInMemory.CreateOptions<CustomerDbContext>();
             using var context = new CustomerDbContext(options);
             context.Database.EnsureCreated();
 
@@ -127,7 +127,7 @@ namespace CodeChallenge.UnitTests.Repositories
         {
             Customer johnDoe = new CustomerBuilder().JohnDoe();
 
-            var options = SqliteInMemory.CreateOptions<CustomerDbContext>();
+            using var options = SqliteInMemory.CreateOptions<CustomerDbContext>();
             using var context = new CustomerDbContext(options);
             context.Database.EnsureCreated();
 

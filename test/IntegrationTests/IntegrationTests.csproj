@@ -1,9 +1,9 @@
 <Project Sdk="Microsoft.NET.Sdk">
-
   <PropertyGroup>
     <TargetFramework>net5.0</TargetFramework>
-
+    <RootNamespace>CodeChallenge.IntegrationTests</RootNamespace>
     <IsPackable>false</IsPackable>
+    <CodeAnalysisRuleSet>..\..\codechallenge.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
 
   <ItemGroup>
@@ -19,6 +19,10 @@
     </PackageReference>
     <PackageReference Include="Microsoft.EntityFrameworkCore.InMemory" Version="5.0.6"/>
     <PackageReference Include="Snapshooter.Xunit" Version="0.6.2"/>
+    <PackageReference Include="StyleCop.Analyzers" Version="1.2.0-beta.333"/>
+    <AdditionalFiles Include="..\..\.editorconfig" />
+    <AdditionalFiles Include="..\..\stylecop.json" />
+    
   </ItemGroup>
 
   <ItemGroup>

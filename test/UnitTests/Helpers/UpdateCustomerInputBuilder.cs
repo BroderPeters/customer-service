@@ -12,6 +12,11 @@ namespace CodeChallenge.UnitTests.Helpers
         private CustomerStatus _status;
         private bool _isBlocked;
 
+        public static implicit operator UpdateCustomerInput(UpdateCustomerInputBuilder builder)
+        {
+            return builder.Build();
+        }
+
         public UpdateCustomerInputBuilder WithId(long id)
         {
             _id = id;
@@ -48,12 +53,7 @@ namespace CodeChallenge.UnitTests.Helpers
             return this;
         }
 
-        public UpdateCustomerInput Build() => new UpdateCustomerInput(_id, _email, _name, _code, _status, _isBlocked);
-
-        public static implicit operator UpdateCustomerInput(UpdateCustomerInputBuilder builder)
-        {
-            return builder.Build();
-        }
+        public UpdateCustomerInput Build() => new(_id, _email, _name, _code, _status, _isBlocked);
 
         public UpdateCustomerInputBuilder DoeJohn()
         {
