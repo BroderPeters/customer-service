@@ -4,7 +4,6 @@ using CodeChallenge.CustomerService.Customers;
 using CodeChallenge.CustomerService.Infrastructure.Contexts;
 using CodeChallenge.CustomerService.Repositories;
 using CodeChallenge.CustomerService.Services;
-using FakeItEasy;
 using HotChocolate;
 using HotChocolate.Execution;
 using Microsoft.EntityFrameworkCore;
@@ -503,7 +502,6 @@ namespace CodeChallenge.IntegrationTests.Customers
         private async Task InitializeAsync()
         {
             var dataSource = Guid.NewGuid().ToString();
-            var test = A.Fake<ICustomerService>();
 
             var serviceCollection = new ServiceCollection()
                 .AddPooledDbContextFactory<CustomerDbContext>(
