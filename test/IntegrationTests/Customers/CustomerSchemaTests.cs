@@ -26,7 +26,7 @@ namespace CodeChallenge.IntegrationTests.Customers
         }
 
         [Fact]
-        public async Task Customer_SchemaValidation()
+        public void Customer_SchemaValidation()
         {
             _schema.Print().MatchSnapshot();
         }
