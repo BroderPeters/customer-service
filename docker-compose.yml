@@ -1,9 +1,4 @@
 services:
-  # customer-service:
-  #   build:
-  #     context: .
-  #     dockerfile: src/Dockerfile
-
   sqlserver:
     image: mcr.microsoft.com/mssql/server
     environment:
