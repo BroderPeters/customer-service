@@ -1,0 +1,13 @@
+﻿{
+  "data": {
+    "updateCustomer": {
+      "customer": null,
+      "errors": [
+        {
+          "code": "MAX_STRING_LENGTH_EXCEEDED",
+          "message": "The Email cannot exceed 128 characters."
+        }
+      ]
+    }
+  }
+}

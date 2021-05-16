@@ -1,0 +1,13 @@
+﻿{
+  "data": {
+    "updateCustomer": {
+      "customer": null,
+      "errors": [
+        {
+          "code": "CUSTOMER_NOT_FOUND",
+          "message": "Customer with id 1 not found."
+        }
+      ]
+    }
+  }
+}

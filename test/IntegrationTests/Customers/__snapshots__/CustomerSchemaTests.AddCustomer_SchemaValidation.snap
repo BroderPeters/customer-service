@@ -1,0 +1,16 @@
+﻿{
+  "data": {
+    "addCustomer": {
+      "customer": {
+        "id": 1,
+        "name": "John Doe",
+        "email": "john.doe@mail.com",
+        "isBlocked": false,
+        "status": "ACTIVE",
+        "code": null,
+        "createdAt": "2021-05-16T22:07:44.421Z"
+      },
+      "errors": null
+    }
+  }
+}

@@ -1,0 +1,12 @@
+﻿{
+  "data": {
+    "customer": {
+      "name": "John Doe",
+      "email": "john.doe@mail.com",
+      "isBlocked": false,
+      "status": "ACTIVE",
+      "code": null,
+      "createdAt": "2021-05-16T22:07:45.138Z"
+    }
+  }
+}
