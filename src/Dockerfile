@@ -2,6 +2,10 @@ FROM mcr.microsoft.com/dotnet/sdk:5.0 AS build
 WORKDIR /app
 
 COPY src/. ./src/
+COPY .editorconfig .
+COPY codechallenge.ruleset .
+COPY stylecop.json .
+
 WORKDIR /app/src
 RUN dotnet restore
 RUN dotnet publish --no-restore -c Release -o out
