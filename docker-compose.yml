@@ -1,4 +1,13 @@
 services:
+  service:
+    build:
+      context: .
+      dockerfile: src/Dockerfile
+    environment:
+      - CONNECTIONSTRING=Server=customer-service_sqlserver_1;Database=master;User Id=sa;Password=Your_strong_password1;
+    ports:
+      - "5000:80"
+
   sqlserver:
     image: mcr.microsoft.com/mssql/server
     environment:

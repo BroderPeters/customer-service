@@ -25,12 +25,12 @@ namespace CodeChallenge.CustomerService
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddPooledDbContextFactory<CustomerDbContext>(
-                options => options.UseSqlServer("Server=localhost;Database=master;User Id=sa;Password=Your_strong_password1;"));
-            services.AddScoped<CustomerDbContext>(
+                options => options.UseSqlServer(Configuration["ConnectionString"]));
+            services.AddScoped(
                 p => p.GetRequiredService<IDbContextFactory<CustomerDbContext>>().CreateDbContext());
 
             services.AddScoped<ICustomerRepository, CustomerRepository>();
-            services.AddScoped<ICustomerService, CustomerService.Services.CustomerService>();
+            services.AddScoped<ICustomerService, Services.CustomerService>();
 
             services.AddGraphQLServer()
                 .AddType<CustomerStatusType>()
